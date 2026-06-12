@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼체 만화 — 캐릭터 레퍼런스 (한국 웹툰풍)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #0a0a0f; color: #e0e0e0; }
+    
+    .hero {
+      text-align: center; padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #0d0d1a 0%, #1a1a3e 100%);
+      border-bottom: 1px solid #2a2a5e;
+    }
+    .hero h1 { font-size: 2rem; margin-bottom: 8px; }
+    .hero .subtitle { color: #888; font-size: 0.95rem; }
+    .hero .style-badge {
+      display: inline-block; margin-top: 16px; padding: 8px 20px;
+      background: #1e1e3a; border: 1px solid #3a3a7e; border-radius: 20px;
+      font-size: 0.9rem; color: #88f;
+    }
+    
+    .nav {
+      display: flex; justify-content: center; gap: 12px; padding: 20px;
+      background: #0f0f1a; border-bottom: 1px solid #2a2a3e; flex-wrap: wrap;
+    }
+    .nav a {
+      padding: 8px 18px; border-radius: 12px; text-decoration: none;
+      color: #aaa; background: #1a1a2e; border: 1px solid #2a2a3e;
+      transition: all 0.2s; font-size: 0.9rem;
+    }
+    .nav a:hover, .nav a.active { background: #2a2a4e; color: #fff; }
+    
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; max-width: 1600px; margin: 40px auto; padding: 0 24px;
+    }
+    
+    .card {
+      background: #12121f; border: 1px solid #2a2a5e; border-radius: 16px;
+      overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(50,50,150,0.15); }
+    
+    .card-img {
+      width: 100%; aspect-ratio: 2/3; overflow: hidden; position: relative;
+    }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .card-info { padding: 20px; }
+    .card-info .name { font-size: 1.3rem; font-weight: bold; margin-bottom: 4px; }
+    .card-info .name-ko { font-size: 0.85rem; color: #888; margin-bottom: 8px; }
+    .card-info .role { font-size: 0.8rem; color: #88f; padding: 4px 10px; background: #1e1e3a; border-radius: 8px; display: inline-block; }
+    .card-info .desc { font-size: 0.85rem; color: #aaa; margin-top: 10px; line-height: 1.5; }
+    
+    .footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.8rem; border-top: 1px solid #1a1a2e; margin-top: 40px; }
+    .footer a { color: #888; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>📱 Style 2: 한국 웹툰풍</h1>
+    <div class="subtitle">Character Reference — Korean Webtoon Style</div>
+    <div class="style-badge">✨ 세련된 디지털 칼라 · 부드러운 그라데이션 · Solo Leveling</div>
+  </div>
+  
+  <div class="nav">
+    <a href="index.html">🏠 전체 비교</a>
+    <a href="s1-watercolor.html">💧 수채화</a>
+    <a href="s2-webtoon.html" class="active">📱 웹툰</a>
+    <a href="s3-ink-wash.html">🖌️ 수묵</a>
+  </div>
+  
+  <div class="grid">
+    <div class="card">
+      <div class="card-img"><img src="https://raw.githubusercontent.com/Daegu-Agent-Crew/three-body-comic/main/styles/characters/characters-s2-yewenjie.png" alt="예원제" loading="lazy"></div>
+      <div class="card-info">
+        <div class="name">叶文洁 Ye Wenjie</div>
+        <div class="name-ko">예원제</div>
+        <div class="role">📌 EP001 주인공</div>
+        <div class="desc">22세. 짧은 보브컷, 깊은 눈망울. 문화대혁명 속에서 모든 것을 잃고 우주로 신호를 보낸 여성.</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-img"><img src="https://raw.githubusercontent.com/Daegu-Agent-Crew/three-body-comic/main/styles/characters/characters-s2-chengxin.png" alt="청신" loading="lazy"></div>
+      <div class="card-info">
+        <div class="name">申雪儿 Cheng Xin</div>
+        <div class="name-ko">청신</div>
+        <div class="role">📌 EP001 나레이터</div>
+        <div class="desc">70세. 흰머리, 깊은 주름. 40년간의 비밀을 안고 사는 노년의 예원제.</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-img"><img src="https://raw.githubusercontent.com/Daegu-Agent-Crew/three-body-comic/main/styles/characters/characters-s2-wangmiao.png" alt="왕먀오" loading="lazy"></div>
+      <div class="card-info">
+        <div class="name">汪淼 Wang Miao</div>
+        <div class="name-ko">왕먀오</div>
+        <div class="role">📌 EP002 주인공</div>
+        <div class="desc">35세. 나노물리학자. 얇은 금속테 안경, 단정한 셔츠. 카운트다운에 직면하는 주인공.</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-img"><img src="https://raw.githubusercontent.com/Daegu-Agent-Crew/three-body-comic/main/styles/characters/characters-s2-shiqiang.png" alt="스치친" loading="lazy"></div>
+      <div class="card-info">
+        <div class="name">史强 Shi Qiang</div>
+        <div class="name-ko">스치친 (다스)</div>
+        <div class="role">📌 왕먀오의 보호자</div>
+        <div class="desc">45세. 건장한 형사반장. 구겨진 셔츠, 뭉친 눈. 거친 말투 아래 따뜻함.</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-img"><img src="https://raw.githubusercontent.com/Daegu-Agent-Crew/three-body-comic/main/styles/characters/characters-s2-zhangbeihai.png" alt="장베이하이" loading="lazy"></div>
+      <div class="card-info">
+        <div class="name">张北海 Zhang Beihai</div>
+        <div class="name-ko">장베이하이</div>
+        <div class="role">📌 EP005 떡밥 · 매력 악역</div>
+        <div class="desc">40세. 중국 해군 대령. 강렬한 눈빛, 해군 제복. 카리스마와 은밀한 목적.</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>삼체 만화 프로젝트 — Daegu-Agent-Crew | <a href="https://github.com/Daegu-Agent-Crew/three-body-comic">GitHub</a></p>
+  </div>
+</body>
+</html>
