@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼체 만화 — 화풍 스타일 비교</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #0a0a0f; color: #e0e0e0; }
+    
+    .hero {
+      text-align: center; padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #0d0d1a 0%, #1a1a2e 100%);
+      border-bottom: 1px solid #2a2a3e;
+    }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 8px; }
+    .hero .subtitle { color: #888; font-size: 1rem; }
+    .hero .scene-label {
+      display: inline-block; margin-top: 16px; padding: 8px 20px;
+      background: #1e1e3a; border: 1px solid #3a3a5e; border-radius: 20px;
+      font-size: 0.9rem; color: #aaa;
+    }
+    
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px; max-width: 1500px; margin: 40px auto; padding: 0 24px;
+    }
+    
+    .card {
+      background: #12121f; border: 1px solid #2a2a3e; border-radius: 16px;
+      overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+    
+    .card-img {
+      width: 100%; aspect-ratio: 3/4; display: flex; align-items: center;
+      justify-content: center; position: relative; overflow: hidden;
+      font-size: 6rem; background-size: cover; background-position: center;
+    }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .card-img .placeholder {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; width: 100%; height: 100%;
+      font-size: 1.1rem; text-align: center; padding: 20px;
+    }
+    
+    /* Style-specific placeholder backgrounds */
+    .style1 .card-img { background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #000 100%); }
+    .style1 .placeholder { color: #fff; }
+    
+    .style2 .card-img { background: linear-gradient(135deg, #2a1a2e 0%, #1a2a3e 30%, #3a2a1e 60%, #1e3a2a 100%); }
+    .style2 .placeholder { color: #e8d5c0; }
+    
+    .style3 .card-img { background: linear-gradient(135deg, #0a0a2e 0%, #1a0a3e 40%, #0a2a4e 70%, #2e0a1a 100%); }
+    .style3 .placeholder { color: #c0d0ff; }
+    
+    .style4 .card-img { background: linear-gradient(135deg, #1a2a4e 0%, #2a1a4e 50%, #4e1a2a 100%); }
+    .style4 .placeholder { color: #f0e0ff; }
+    
+    .card-body { padding: 20px; }
+    .card-body h2 { font-size: 1.3rem; margin-bottom: 6px; }
+    .card-body .en-name { color: #666; font-size: 0.85rem; margin-bottom: 12px; }
+    .card-body .desc { color: #aaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; }
+    
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag {
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      font-size: 0.75rem; background: #1e1e3a; border: 1px solid #3a3a5e; color: #aaa;
+    }
+    
+    .prompt-section { margin-top: 16px; }
+    .prompt-toggle {
+      background: none; border: 1px solid #3a3a5e; color: #888;
+      padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;
+      width: 100%; text-align: left;
+    }
+    .prompt-toggle:hover { border-color: #5a5a8e; color: #bbb; }
+    .prompt-box {
+      display: none; margin-top: 10px; padding: 12px; background: #0a0a14;
+      border-radius: 8px; font-family: monospace; font-size: 0.78rem;
+      color: #8a8aaa; line-height: 1.6; white-space: pre-wrap; word-break: break-all;
+    }
+    .prompt-toggle.active + .prompt-box { display: block; }
+    
+    .vote-section {
+      text-align: center; padding: 16px; border-top: 1px solid #2a2a3e;
+    }
+    .vote-btn {
+      display: inline-block; padding: 8px 24px; border-radius: 20px;
+      background: #2a2a5e; border: 1px solid #4a4a8e; color: #ccc;
+      cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
+    }
+    .vote-btn:hover { background: #3a3a7e; color: #fff; }
+    .vote-btn.voted { background: #4a4aae; border-color: #6a6ace; color: #fff; }
+    
+    .footer {
+      text-align: center; padding: 40px 20px; color: #555;
+      font-size: 0.8rem; border-top: 1px solid #1a1a2e; margin-top: 60px;
+    }
+    .footer a { color: #6a6aae; text-decoration: none; }
+    
+    .instructions {
+      max-width: 800px; margin: 40px auto; padding: 24px;
+      background: #12121f; border: 1px solid #2a2a3e; border-radius: 12px;
+    }
+    .instructions h3 { margin-bottom: 12px; font-size: 1.1rem; }
+    .instructions ol { padding-left: 20px; line-height: 2; color: #aaa; }
+    .instructions code { background: #1e1e3a; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+    
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🌌 삼체 만화 — 화풍 스타일 비교</h1>
+  <p class="subtitle">Three Body Comic — Style Comparison</p>
+  <div class="scene-label">
+    🎬 테스트 장면: 왕먀오, 삼체 게임에 처음 들어가다 — 삼태양 아래 사막에 서는 순간
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- Style 1 -->
+  <div class="card style1">
+    <div class="card-img">
+      <div class="placeholder" id="img1">
+        <div style="font-size:3rem;margin-bottom:12px;">🖊️</div>
+        <div><strong>Style 1: 일본 만화풍</strong></div>
+        <div style="font-size:0.85rem;color:#888;margin-top:8px;">
+          강렬한 선, 셀 셰이딩, 하프톤<br>단색 고대비
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2>Style 1: 일본 만화풍</h2>
+      <div class="en-name">Japanese Manga Style</div>
+      <div class="desc">
+        강렬한 잉크 아웃라인, 셀 셰이딩, 하프톤 패턴. 역동적인 구도와 고대비 흑백 연출이 특징.
+        <strong>아키라, 공각기동대, 진격의 거인</strong> 계열.
+      </div>
+      <div class="tag-row">
+        <span class="tag">강렬한 선</span>
+        <span class="tag">셀 셰이딩</span>
+        <span class="tag">하프톤</span>
+        <span class="tag">고대비</span>
+        <span class="tag">흑백</span>
+      </div>
+      <div class="prompt-section">
+        <button class="prompt-toggle" onclick="this.classList.toggle('active')">📋 프롬프트 보기/숨기기</button>
+        <div class="prompt-box">Japanese manga style, dramatic scene: a male Chinese scientist in his 30s with short black hair and thin glasses, standing in a vast alien desert landscape under three suns in the sky. Bold ink outlines, cel shading, halftone dot patterns, dynamic low-angle composition, monochrome with high contrast, detailed cross-hatching linework. The scientist looks up in awe and terror at the three suns casting triple shadows. Ancient ruined stone structures scattered across the barren desert. Mysterious oppressive atmosphere. cf: Akira, Ghost in the Shell manga, Battle Angel Alita. Vertical manga panel format, 3:4 ratio.</div>
+      </div>
+    </div>
+    <div class="vote-section">
+      <button class="vote-btn" onclick="vote(1, this)">👍 이 스타일 선택</button>
+    </div>
+  </div>
+
+  <!-- Style 2 -->
+  <div class="card style2">
+    <div class="card-img">
+      <div class="placeholder" id="img2">
+        <div style="font-size:3rem;margin-bottom:12px;">🎨</div>
+        <div><strong>Style 2: 수채화풍</strong></div>
+        <div style="font-size:0.85rem;color:#a89878;margin-top:8px;">
+          부드러운 색 번짐, 몽환적 분위기<br>빛과 그림자의 감성적 표현
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2>Style 2: 수채화풍</h2>
+      <div class="en-name">Watercolor Style</div>
+      <div class="desc">
+        부드러운 색 번짐과 몽환적 분위기. 흐르는 붓터치와 은은한 색조가 SF의 경이로움을 감성적으로 표현.
+        <strong>지브리 수채화, SF 컨셉아트</strong> 계열.
+      </div>
+      <div class="tag-row">
+        <span class="tag">색 번짐</span>
+        <span class="tag">몽환적</span>
+        <span class="tag">감성적 조명</span>
+        <span class="tag">흐르는 붓터치</span>
+        <span class="tag">은은한 색조</span>
+      </div>
+      <div class="prompt-section">
+        <button class="prompt-toggle" onclick="this.classList.toggle('active')">📋 프롬프트 보기/숨기기</button>
+        <div class="prompt-box">Watercolor painting style, ethereal scene: a male Chinese scientist in his 30s with short black hair and thin glasses, standing in a vast alien desert landscape under three suns in the sky. Soft color washes in warm golden and cool blue tones, dreamy atmosphere, ethereal lighting from the triple suns, flowing brushstrokes, muted palette with vibrant golden accents. The scientist looks up with wonder and melancholy at the alien sky. Ancient ruined architecture partially visible through desert haze. Studio Ghibli watercolor quality, sci-fi concept art. Vertical composition, 3:4 ratio.</div>
+      </div>
+    </div>
+    <div class="vote-section">
+      <button class="vote-btn" onclick="vote(2, this)">👍 이 스타일 선택</button>
+    </div>
+  </div>
+
+  <!-- Style 3 -->
+  <div class="card style3">
+    <div class="card-img">
+      <div class="placeholder" id="img3">
+        <div style="font-size:3rem;margin-bottom:12px;">🎬</div>
+        <div><strong>Style 3: 사실적 SF풍</strong></div>
+        <div style="font-size:0.85rem;color:#8090c0;margin-top:8px;">
+          영화 포스터 퀄리티, 시네마틱 조명<br>하이퍼 디테일 8K 렌더
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2>Style 3: 사실적 SF풍</h2>
+      <div class="en-name">Realistic Sci-Fi Style</div>
+      <div class="div class="desc">
+        사진 수준의 디테일과 드라마틱한 시네마틱 조명. 영화 포스터 같은 완성도로 시각적 압도감 극대화.
+        <strong>인터스텔라, 블레이드 러너 2049</strong> 계열.
+      </div>
+      <div class="tag-row">
+        <span class="tag">시네마틱</span>
+        <span class="tag">8K 렌더</span>
+        <span class="tag">볼류메트릭 조명</span>
+        <span class="tag">필름 그레인</span>
+        <span class="tag">사실적</span>
+      </div>
+      <div class="prompt-section">
+        <button class="prompt-toggle" onclick="this.classList.toggle('active')">📋 프롬프트 보기/숨기기</button>
+        <div class="prompt-box">Photorealistic sci-fi illustration, cinematic scene: a male Chinese scientist in his 30s with short black hair and thin glasses, standing in a vast alien desert landscape under three suns in the sky. Cinematic lighting with volumetric god rays from the triple suns, hyper-detailed 8K render, dramatic wide-angle composition, film grain texture, lens flare. The scientist looks up in awe and existential terror, small human figure against cosmic scale. Ancient alien megastructures in ruins across the desert. Color grading: warm orange and cold blue split toning. cf: Interstellar poster, Blade Runner 2049, The Expanse. Vertical format, 3:4 ratio.</div>
+      </div>
+    </div>
+    <div class="vote-section">
+      <button class="vote-btn" onclick="vote(3, this)">👍 이 스타일 선택</button>
+    </div>
+  </div>
+
+  <!-- Style 4 -->
+  <div class="card style4">
+    <div class="card-img">
+      <div class="placeholder" id="img4">
+        <div style="font-size:3rem;margin-bottom:12px;">💫</div>
+        <div><strong>Style 4: 한국 웹툰풍</strong></div>
+        <div style="font-size:0.85rem;color:#c0a0e0;margin-top:8px;">
+          세련된 디지털 칼라, 모던 감성<br>부드러운 그라데이션
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2>Style 4: 한국 웹툰풍</h2>
+      <div class="en-name">Korean Webtoon Style</div>
+      <div class="desc">
+        세련된 디지털 칼라와 부드러운 그라데이션. 깔끔한 선과 풍부한 표정으로 현대적 감성.
+        <strong>솔로 레벨, 노블레스, 신의 탑</strong> 계열.
+      </div>
+      <div class="tag-row">
+        <span class="tag">디지털 칼라</span>
+        <span class="tag">그라데이션</span>
+        <span class="tag">모던</span>
+        <span class="tag">깔끔한 선</span>
+        <span class="tag">풍부한 표정</span>
+      </div>
+      <div class="prompt-section">
+        <button class="prompt-toggle" onclick="this.classList.toggle('active')">📋 프롬프트 보기/숨기기</button>
+        <div class="prompt-box">Korean webtoon style, dramatic scene: a male Chinese scientist in his 30s with short black hair and thin glasses, standing in a vast alien desert landscape under three suns in the sky. Vivid digital colors with smooth gradients, modern aesthetic, clean precise linework, highly expressive character with wide eyes showing wonder and fear, polished professional finish. The scientist is backlit by the triple suns creating a dramatic silhouette edge light. Ancient mysterious ruins in soft-focus background. Rich color palette: warm oranges and cool blues. cf: Solo Leveling art, Tower of God, Noblesse. Vertical webtoon panel format, 3:4 ratio.</div>
+      </div>
+    </div>
+    <div class="vote-section">
+      <button class="vote-btn" onclick="vote(4, this)">👍 이 스타일 선택</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="instructions">
+  <h3>📝 이미지 생성 방법</h3>
+  <ol>
+    <li>위 <code>📋 프롬프트 보기</code>를 클릭해 각 스타일의 프롬프트를 복사</li>
+    <li>ChatGPT (Image 생성 모드) 또는 Codex에 붙여넣기</li>
+    <li>생성된 이미지를 <code>styles/comparison/images/</code> 에 저장</li>
+    <li>이 페이지에 자동 반영 (이미지 파일명 매칭)</li>
+    <li>팀원들과 스타일 투표 후 최종 1~2종 선정</li>
+  </ol>
+</div>
+
+<div class="footer">
+  <p>삼체 만화 × 재미 실험 프로젝트 | <a href="https://github.com/Daegu-Agent-Crew/three-body-comic">GitHub Repo</a></p>
+  <p style="margin-top:8px;">PRD v2.0 — 3중 구조 실험 프로젝트 | 화풍 시험용 비교 페이지</p>
+</div>
+
+<script>
+function vote(style, btn) {
+  document.querySelectorAll('.vote-btn').forEach(b => {
+    b.classList.remove('voted');
+    b.textContent = '👍 이 스타일 선택';
+  });
+  btn.classList.add('voted');
+  const names = ['', '일본 만화풍', '수채화풍', '사실적 SF풍', '한국 웹툰풍'];
+  btn.textContent = '✅ ' + names[style] + ' 선택됨';
+}
+</script>
+
+</body>
+</html>
