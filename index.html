@@ -241,6 +241,36 @@
     </div>
   </div>
 
+
+  <!-- Style 5 -->
+  <div class="card style5">
+    <div class="card-img">
+      <img src="images/style5-atom-doctor-slump.png" alt="Style 5: 아톰 × 닥터슬럼프" loading="lazy">
+    </div>
+    <div class="card-body">
+      <h2>Style 5: 아톰 × 닥터슬럼프 결합</h2>
+      <div class="en-name">Astro Boy × Dr. Slump Fusion</div>
+      <div class="desc">
+        오사무 데즈카(아톰)의 둥근 캐릭터 비율과 큰 눈 + 토리야마 아키라(닥터슬럼프)의 깔끔한 굵은 선과 통통한 카툰 형태 결합.
+        따뜻한 레트로 셀 셰이딩 컬러, 향수어린 손그림 느낌.
+      </div>
+      <div class="tag-row">
+        <span class="tag">데즈카풍</span>
+        <span class="tag">토리야마풍</span>
+        <span class="tag">레트로 셀</span>
+        <span class="tag">밝은 색감</span>
+        <span class="tag">카툰</span>
+      </div>
+      <div class="prompt-section">
+        <button class="prompt-toggle" onclick="this.classList.toggle('active')">📋 프롬프트 보기/숨기기</button>
+        <div class="prompt-box">Retro 1960s-1980s classic Japanese anime style combining Osamu Tezuka Astro Boy and Akira Toriyama Dr Slump aesthetics. A male Chinese scientist in his 30s with short black hair and thin glasses, standing in a vast alien desert under three suns. Round Tezuka-style character proportions with large expressive eyes, Toriyama-style clean bold outlines and cartoonish shapes. Warm nostalgic cel-shaded colors, retro anime hand-painted cel look. Bright saturated palette. Vertical manga panel format 3:4 ratio.</div>
+      </div>
+    </div>
+    <div class="vote-section">
+      <button class="vote-btn" onclick="vote(5, this)">👍 이 스타일 선택</button>
+    </div>
+  </div>
+
 </div>
 
 <div class="instructions">
@@ -266,7 +296,7 @@ function vote(style, btn) {
     b.textContent = '👍 이 스타일 선택';
   });
   btn.classList.add('voted');
-  const names = ['', '일본 만화풍', '수채화풍', '사실적 SF풍', '한국 웹툰풍'];
+  const names = ['', '일본 만화풍', '수채화풍', '사실적 SF풍', '한국 웹툰풍', '아톰 × 닥터슬럼프'];
   btn.textContent = '✅ ' + names[style] + ' 선택됨';
 }
 </script>
