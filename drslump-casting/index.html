@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼체 × 닥터슬럼프 v2 — 캐릭터 레퍼런스</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+      background: #0a0a0f; color: #e0e0e0;
+    }
+
+    .hero {
+      text-align: center; padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #0d0d1a 0%, #1a1a2e 100%);
+      border-bottom: 1px solid #2a2a3e;
+    }
+    .hero h1 { font-size: 2.4rem; margin-bottom: 8px; color: #fff; }
+    .hero .subtitle { color: #888; font-size: 1.1rem; margin-bottom: 20px; }
+    .hero .version-badge {
+      display: inline-block; padding: 4px 14px;
+      background: #7b68ee22; border: 1px solid #7b68ee; border-radius: 20px;
+      font-size: 0.8rem; color: #7b68ee; margin-bottom: 16px;
+    }
+    .hero .concept {
+      display: inline-block; padding: 12px 24px;
+      background: #1e1e3a; border: 1px solid #3a3a5e; border-radius: 20px;
+      font-size: 0.95rem; color: #aaa; max-width: 700px;
+    }
+    .changes {
+      margin-top: 20px; display: inline-block; padding: 12px 20px;
+      background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 12px;
+      font-size: 0.85rem; color: #999; max-width: 700px; text-align: left;
+    }
+    .changes h3 { color: #f39c12; margin-bottom: 8px; font-size: 0.95rem; }
+    .changes li { margin-bottom: 4px; }
+    .changes .new { color: #2ecc71; }
+    .changes .changed { color: #e74c3c; }
+    .changes .same { color: #888; }
+
+    .nav { 
+      text-align: center; padding: 16px; 
+      background: #0d0d1a; border-bottom: 1px solid #2a2a3e;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav a {
+      color: #888; text-decoration: none; margin: 0 10px;
+      font-size: 0.85rem; transition: color 0.2s;
+    }
+    .nav a:hover { color: #fff; }
+
+    /* Casting Table */
+    .casting-section {
+      max-width: 1100px; margin: 40px auto; padding: 0 24px;
+    }
+    .casting-section h2 {
+      font-size: 1.5rem; color: #fff; margin-bottom: 20px;
+      padding-left: 12px; border-left: 3px solid #7b68ee;
+    }
+    .cast-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .cast-card {
+      display: flex; align-items: center; gap: 14px;
+      background: #12121f; border: 1px solid #2a2a3e; border-radius: 10px;
+      padding: 14px; transition: transform 0.2s;
+    }
+    .cast-card:hover { transform: translateY(-2px); }
+    .cast-card.new { border-left: 3px solid #2ecc71; }
+    .cast-card.changed { border-left: 3px solid #e74c3c; }
+    .cast-card.same { border-left: 3px solid #555; }
+    .cast-emoji { font-size: 2.2rem; min-width: 44px; text-align: center; }
+    .cast-info h3 { font-size: 0.95rem; color: #fff; margin-bottom: 2px; }
+    .cast-info .role { color: #7b68ee; font-size: 0.8rem; margin-bottom: 4px; }
+    .cast-info .desc { color: #888; font-size: 0.78rem; line-height: 1.4; }
+    .cast-info .badge {
+      display: inline-block; padding: 1px 8px; border-radius: 10px;
+      font-size: 0.65rem; font-weight: bold; margin-left: 6px;
+    }
+    .badge-new { background: #2ecc7122; color: #2ecc71; border: 1px solid #2ecc7144; }
+    .badge-changed { background: #e74c3c22; color: #e74c3c; border: 1px solid #e74c3c44; }
+    .badge-same { background: #555222; color: #888; border: 1px solid #555; }
+
+    /* Character Reference */
+    .char-section {
+      max-width: 800px; margin: 0 auto 50px; padding: 0 24px;
+    }
+    .char-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid #2a2a3e;
+    }
+    .char-header .emoji { font-size: 2.6rem; }
+    .char-header .info h2 { font-size: 1.3rem; color: #fff; }
+    .char-header .info .mapping { color: #7b68ee; font-size: 0.85rem; }
+    .char-header .info .desc { color: #888; font-size: 0.82rem; margin-top: 3px; }
+    .char-ref {
+      background: #12121f; border: 1px solid #2a2a3e; border-radius: 14px;
+      overflow: hidden;
+    }
+    .char-ref img { width: 100%; display: block; background: #1a1a2e; }
+    .char-ref .footer {
+      padding: 10px 16px; text-align: right;
+      color: #444; font-size: 0.72rem; border-top: 1px solid #2a2a3e;
+    }
+
+    /* Quick Nav */
+    .quick-nav {
+      max-width: 900px; margin: 30px auto; padding: 0 24px;
+    }
+    .quick-nav .title {
+      font-size: 0.82rem; color: #555; margin-bottom: 10px;
+      padding-left: 12px; border-left: 2px solid #2a2a3e;
+    }
+    .quick-nav-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+    }
+    .quick-nav-grid a {
+      display: block; padding: 10px; text-align: center;
+      background: #12121f; border: 1px solid #2a2a3e; border-radius: 8px;
+      text-decoration: none; transition: transform 0.2s, border-color 0.2s;
+    }
+    .quick-nav-grid a:hover { transform: translateY(-2px); border-color: #7b68ee; }
+    .quick-nav-grid .q-emoji { font-size: 1.6rem; display: block; margin-bottom: 3px; }
+    .quick-nav-grid .q-name { color: #ccc; font-size: 0.75rem; }
+    .quick-nav-grid .q-role { color: #666; font-size: 0.65rem; }
+
+    footer {
+      text-align: center; padding: 30px; border-top: 1px solid #2a2a3e;
+      color: #555; font-size: 0.8rem;
+    }
+    footer a { color: #7b68ee; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.5rem; }
+      .cast-grid { grid-template-columns: 1fr; }
+      .nav a { margin: 0 6px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="version-badge">v2 — 위키백과/나무위키 기준 재매칭</div>
+  <h1>🌌 삼체 × 닥터슬럼프</h1>
+  <p class="subtitle">Three Body Problem × Dr. Slump Character Reference</p>
+  <div class="concept">
+    펭귄마을에 삼체 문명이 찾아온다면? 도래야 아키라의 닥터슬럼프 캐릭터로 유우캐 리우싱의《삼체문제》를 재해석.
+  </div>
+  <div class="changes">
+    <h3>v1→v2 변경점</h3>
+    <ul>
+      <li><span class="changed">✏️ 시철장:</span> 미야코 → <strong>크리킨톤</strong> (전직 형사! 완벽 매칭)</li>
+      <li><span class="changed">✏️ 진한:</span> 도로보 → <strong>마시리토 박사</strong> (세계 정복 악당)</li>
+      <li><span class="new">➕ 장베이하이 → 슷빠만</span> (자칭 영웅/비열)</li>
+      <li><span class="new">➕ 뤄지 → 츤 츠루린</span> (초능력, 지적 조력자)</li>
+      <li><span class="new">➕ 청신 → 츤 츠루텐</span> (외계 발명가)</li>
+      <li><span class="new">➕ 채미 → 미도리</span> (차분한 교사/아내)</li>
+      <li><span class="new">➕ 반한 → 아카네</span> (장난꾸러기)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="nav">
+  <a href="#casting">🎭 캐스팅</a>
+  <a href="#characters">🖼️ 레퍼런스</a>
+  <a 
+  <a href="https://daegu-agent-crew.github.io/three-body-comic/" style="color:#e74c3c">← 메인</a>
+</div>
+
+<!-- Casting -->
+<div class="casting-section" id="casting">
+  <h2>🎭 캐릭터 캐스팅 (v2)</h2>
+  <div class="cast-grid">
+    <a href="#char-arale" style="text-decoration:none;color:inherit">
+      <div class="cast-card same">
+        <div class="cast-emoji">🌸</div>
+        <div class="cast-info">
+          <h3>아라레 → 왕미오 <span class="badge badge-same">유지</span></h3>
+          <div class="role">주인공 / 나노 재료 연구원</div>
+          <div class="desc">순수한 호기심으로 거대 사건에 던져진 영웅</div>
+        </div>
+      </div>
+    </a>
+    <a href="#char-senbei" style="text-decoration:none;color:inherit">
+      <div class="cast-card same">
+        <div class="cast-emoji">🔬</div>
+        <div class="cast-info">
+          <h3>센베 박사 → 예문연 <span class="badge badge-same">유지</span></h3>
+          <div class="role">천재 발명가 / 최초 접촉자</div>
+          <div class="desc">세계를 바꾸는 발명과 책임감에 시달리는 천재</div>
+        </div>
+      </div>
+    </a>
+    <a href="#char-kurikinton" style="text-decoration:none;color:inherit">
+      <div class="cast-card changed">
+        <div class="cast-emoji">💪</div>
+        <div class="cast-info">
+          <h3>크리킨톤 → 대장 <span class="badge badge-changed">변경</span></h3>
+          <div class="role">전직 형사 / 미용사</div>
+          <div class="desc">베테랑 형사! 아라레 열혈 팬, 현실 감각</div>
+        </div>
+      </div>
+    </a>
+    <a href="#char-mashirito" style="text-decoration:none;color:inherit">
+      <div class="cast-card changed">
+        <div class="cast-emoji">😈</div>
+        <div class="cast-info">
+          <h3>마시리토 박사 → 진한 <span class="badge badge-changed">변경</span></h3>
+          <div class="role">ETO 수괴 / 세계 정복 악당</div>
+          <div class="desc">센베의 라이벌, 캐러멜맨 로봇 군단</div>
+        </div>
+      </div>
+    </a>
+    <a href="#char-suppaman" style="text-decoration:none;color:inherit">
+      <div class="cast-card new">
+        <div class="cast-emoji">🦸</div>
+        <div class="cast-info">
+          <h3>슷빠만 → 장베이하이 <span class="badge badge-new">신규</span></h3>
+          <div class="role">자칭 영웅 / 비열한 이면</div>
+          <div class="desc">스케이트보드로 날고, 위기엔 도망</div>
+        </div>
+      </div>
+    </a>
+    <a href="#char-tsun" style="text-decoration:none;color:inherit">
+      <div class="cast-card new">
+        <div class="cast-emoji">✨</div>
+        <div class="cast-info">
+          <h3>츤 가 → 뤄지+청신 <span class="badge badge-new">신규</span></h3>
+          <div class="role">초능력/발명가 / 외계에서 온 가족</div>
+          <div class="desc">츠루린(염동력) + 츠루텐(발명가)</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Quick Nav -->
+<div class="quick-nav" id="characters">
+  <div class="title">캐릭터 레퍼런스 바로가기</div>
+  <div class="quick-nav-grid">
+    <a href="#char-arale"><span class="q-emoji">🌸</span><span class="q-name">아라레</span><span class="q-role">왕미오</span></a>
+    <a href="#char-senbei"><span class="q-emoji">🔬</span><span class="q-name">센베</span><span class="q-role">예문연</span></a>
+    <a href="#char-kurikinton"><span class="q-emoji">💪</span><span class="q-name">크리킨톤</span><span class="q-role">대장</span></a>
+    <a href="#char-mashirito"><span class="q-emoji">😈</span><span class="q-name">마시리토</span><span class="q-role">진한</span></a>
+    <a href="#char-suppaman"><span class="q-emoji">🦸</span><span class="q-name">슷빠만</span><span class="q-role">장베이하이</span></a>
+    <a href="#char-tsun"><span class="q-emoji">✨</span><span class="q-name">츤 가</span><span class="q-role">뤄지+청신</span></a>
+  </div>
+</div>
+
+<!-- Characters -->
+
+<div class="char-section" id="char-arale">
+  <div class="char-header">
+    <span class="emoji">🌸</span>
+    <div class="info">
+      <h2>아라레 (= 왕미오)</h2>
+      <div class="mapping">三体: 汪淼 Wang Miao · <span style="color:#2ecc71">v1 유지</span></div>
+      <div class="desc">센베가 만든 로봇. 지구를 쪼갤 힘. 순수한 성격. 볼컷+안경+붉은 원피스.</div>
+    </div>
+  </div>
+  <div class="char-ref">
+    <img src="images/v2/ref-arale.png" alt="아라레 레퍼런스" loading="lazy">
+    <div class="footer">Akira Toriyama style · gpt-image-2</div>
+  </div>
+</div>
+
+<div class="char-section" id="char-senbei">
+  <div class="char-header">
+    <span class="emoji">🔬</span>
+    <div class="info">
+      <h2>센베 박사 (= 예문연)</h2>
+      <div class="mapping">三体: 叶文洁 Ye Wenjie · <span style="color:#2ecc71">v1 유지</span></div>
+      <div class="desc">천재 발명가. 발명품 대부분 실패작. 야생 머리+고글+가운.</div>
+    </div>
+  </div>
+  <div class="char-ref">
+    <img src="images/v2/ref-senbei.png" alt="센베 레퍼런스" loading="lazy">
+    <div class="footer">Akira Toriyama style · gpt-image-2</div>
+  </div>
+</div>
+
+<div class="char-section" id="char-kurikinton">
+  <div class="char-header">
+    <span class="emoji">💪</span>
+    <div class="info">
+      <h2>크리킨톤 (= 대장·시철장)</h2>
+      <div class="mapping">三体: 史强 Shi Qiang · <span style="color:#e74c3c">v2 변경</span></div>
+      <div class="desc">전직 형사! 현재 미용사. 타로·피스케의 아빠. 아라레 열혈 팬. 건장한 체격+콧수염.</div>
+    </div>
+  </div>
+  <div class="char-ref">
+    <img src="images/v2/ref-kurikinton.png" alt="크리킨톤 레퍼런스" loading="lazy">
+    <div class="footer">Akira Toriyama style · gpt-image-2</div>
+  </div>
+</div>
+
+<div class="char-section" id="char-mashirito">
+  <div class="char-header">
+    <span class="emoji">😈</span>
+    <div class="info">
+      <h2>마시리토 박사 (= 진한)</h2>
+      <div class="mapping">三体: 陈汉 Chen Han · <span style="color:#e74c3c">v2 변경</span></div>
+      <div class="desc">세계 정복 악당. 센베의 라이벌. 아프로 머리+날카로운 턱. 캐러멜맨 로봇 개발.</div>
+    </div>
+  </div>
+  <div class="char-ref">
+    <img src="images/v2/ref-mashirito.png" alt="마시리토 레퍼런스" loading="lazy">
+    <div class="footer">Akira Toriyama style · gpt-image-2</div>
+  </div>
+</div>
+
+<div class="char-section" id="char-suppaman">
+  <div class="char-header">
+    <span class="emoji">🦸</span>
+    <div class="info">
+      <h2>슷빠만 (= 장베이하이)</h2>
+      <div class="mapping">v2 신규 캐릭터</div>
+      <div class="desc">자칭 영웅. 초밥(우메보시) 먹고 변신. 스케이트보드로 날음. 강자엔 무릎, 약자에 골탕.</div>
+    </div>
+  </div>
+  <div class="char-ref">
+    <img src="images/v2/ref-suppaman.png" alt="슷빠만 레퍼런스" loading="lazy">
+    <div class="footer">Akira Toriyama style · gpt-image-2</div>
+  </div>
+</div>
+
+<div class="char-section" id="char-tsun">
+  <div class="char-header">
+    <span class="emoji">✨</span>
+    <div class="info">
+      <h2>츤 츠루린 + 츤 츠루텐 (= 뤄지 + 청신)</h2>
+      <div class="mapping">v2 신규 캐릭터</div>
+      <div class="desc">츠루린: 초능력자(염동력·텔레포트), 지적. 츠루텐: 발명가, 우주선으로 펭귄마을 불시착.</div>
+    </div>
+  </div>
+  <div class="char-ref">
+    <img src="images/v2/ref-tsun-family.png" alt="츤 가 레퍼런스" loading="lazy">
+    <div class="footer">Akira Toriyama style · gpt-image-2</div>
+  </div>
+</div>
+
+<footer>
+  <p>삼체 × 닥터슬럼프 v2 캐릭터 레퍼런스 | <a href="https://github.com/Daegu-Agent-Crew/three-body-comic">GitHub</a></p>
+  <p style="margin-top:8px">원작: 유우캐 리우싱《삼체문제》· 도래야 아키라《닥터슬럼프》| 각색: Daegu-Agent-Crew</p>
+</footer>
+
+</body>
+</html>
