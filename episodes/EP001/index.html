@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제1화 — 태초의 밤 | 삼체 만화 연재</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1G8KRMVXTJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1G8KRMVXTJ');
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Orbitron:wght@400;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #0a0612;
+      --bg-card: rgba(20, 10, 40, 0.8);
+      --accent-purple: #8b5cf6;
+      --accent-blue: #3b82f6;
+      --accent-pink: #ec4899;
+      --text-primary: #f1f0f5;
+      --text-secondary: #a0a0b8;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    /* Top Nav */
+    .top-nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(10, 6, 18, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      padding: 0.8rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.9rem;
+    }
+    .top-nav a {
+      color: var(--accent-purple); text-decoration: none;
+      font-weight: 700;
+    }
+    .top-nav a:hover { text-decoration: underline; }
+    .ep-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem; color: var(--accent-blue);
+    }
+
+    /* Episode Header */
+    .ep-header {
+      max-width: 700px; margin: 0 auto;
+      padding: 2.5rem 1rem 1.5rem;
+      text-align: center;
+    }
+    .ep-header h1 {
+      font-size: 1.8rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .ep-header .subtitle {
+      font-size: 0.95rem; color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .ep-header .meta {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem; color: var(--accent-blue);
+      margin-top: 0.5rem; letter-spacing: 2px;
+    }
+
+    /* Scene Divider */
+    .scene-divider {
+      max-width: 700px; margin: 0 auto;
+      padding: 1.5rem 1rem 0.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .scene-divider .line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent);
+    }
+    .scene-divider .label {
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--accent-purple);
+      white-space: nowrap;
+      letter-spacing: 1px;
+    }
+
+    /* Reader */
+    .reader {
+      max-width: 700px; margin: 0 auto;
+    }
+    .reader img {
+      width: 100%; display: block;
+      transition: opacity 0.3s;
+    }
+    .reader img:hover {
+      opacity: 0.95;
+    }
+
+    /* Panel caption */
+    .panel-caption {
+      max-width: 700px; margin: 0 auto;
+      padding: 0.5rem 1rem 0;
+      font-size: 0.78rem; color: var(--text-secondary);
+      text-align: right;
+    }
+
+    /* Bottom Nav */
+    .bottom-nav {
+      max-width: 700px; margin: 2rem auto 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 1rem; gap: 1rem;
+    }
+    .nav-btn {
+      flex: 1; text-align: center;
+      padding: 1rem; border-radius: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      color: var(--text-primary); text-decoration: none;
+      font-weight: 700; font-size: 0.95rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .nav-btn:hover {
+      border-color: var(--accent-purple);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+    }
+    .nav-btn.disabled {
+      opacity: 0.3; pointer-events: none;
+    }
+    .nav-btn.home-btn {
+      flex: 0 0 auto; padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* Feedback */
+    .feedback {
+      max-width: 700px; margin: 0 auto 3rem;
+      text-align: center; padding: 2rem 1rem;
+    }
+    .feedback a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+      color: white; text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feedback a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="../../index.html">THREE BODY COMIC</a>
+  <span class="ep-label">EP001 — 태초의 밤</span>
+</nav>
+
+<div class="ep-header">
+  <h1>제1화 — 태초의 밤</h1>
+  <p class="subtitle">문화대혁명 속에서 모든 것을 잃은 한 여성이 우주로 신호를 보내고,<br>40년 뒤 과학자들이 연쇄로 죽기 시작한다.</p>
+  <div class="meta">16 PANELS · 수채화풍 · 2026.06.14</div>
+</div>
+
+<!-- ACT 1: 청신의 기억 -->
+<div class="scene-divider">
+  <div class="line"></div>
+  <div class="label">ACT 1 — 청신의 기억</div>
+  <div class="line"></div>
+</div>
+
+<main class="reader">
+  <!-- Scene 1: 밤하늘 -->
+  <img src="panels/ep001-p01-starry-night---e11cc019-86b8-432e-9d20-e31cc5e43cc9.png" alt="p.1 별이 쏟아지는 밤하늘 아래 예원제" loading="lazy">
+  <div class="panel-caption">p.1 — 별이 쏟아지는 밤, 기숙사 옥상</div>
+
+  <img src="panels/ep001-p05-stars-whisper.png" alt="p.5 예원제가 별을 올려다보며" loading="lazy">
+  <div class="panel-caption">p.5 — "하늘이 말을 하고 있는 것 같아요."</div>
+
+  <!-- Scene 2: 붉은 날 -->
+  <img src="panels/ep001-p06-red-sun-v3---0317d563-be70-42c2-a137-ad93f6272c0a.png" alt="p.6 붉은 홍위병의 강당" loading="lazy">
+  <div class="panel-caption">p.6 — 붉은 날, 강당의 홍위병들</div>
+
+  <img src="panels/ep001-p10-defiance.png" alt="p.10 예페이촨의 굴하지 않는 저항" loading="lazy">
+  <div class="panel-caption">p.10 — "물리학은 당신들의 정치로 바뀌지 않습니다."</div>
+
+  <!-- Scene 3: 선택 -->
+  <img src="panels/ep001-p13-choice---909182d1-a410-4941-ab0c-e586de49927e.png" alt="p.13 고발 종이를 내밀는 홍위병" loading="lazy">
+  <div class="panel-caption">p.13 — 아버지를 고발하라는 종이</div>
+
+  <img src="panels/ep001-p18-silence---55f865cb-951a-4845-a480-7d42d6afbd70.png" alt="p.18 침묵 — 비 내리는 창문" loading="lazy">
+  <div class="panel-caption">p.18 — 침묵. 3초간의 여백.</div>
+
+  <!-- Scene 4: 밤의 끝 -->
+  <img src="panels/ep001-p19-tower-signal-v3---de99aeb7-de81-494c-a01b-6ca1cd15d579.png" alt="p.19 라디오 망대 아래 예원제" loading="lazy">
+  <div class="panel-caption">p.19 — 라디오 망대, 차가운 결의</div>
+
+  <img src="panels/ep001-p23-signal---52eda779-b963-42e7-b6f9-fa9d06309253.png" alt="p.23 전파가 우주로 방출" loading="lazy">
+  <div class="panel-caption">p.23 — 우주로 향하는 전파</div>
+</main>
+
+<!-- ACT 2: 연쇄 사망 -->
+<div class="scene-divider">
+  <div class="line"></div>
+  <div class="label">ACT 2 — 연쇄 사망</div>
+  <div class="line"></div>
+</div>
+
+<main class="reader">
+  <!-- Scene 5: 뉴스 브리핑 -->
+  <img src="panels/ep001-p25-news-deaths-v3---b311a880-217d-4bc9-a70f-60101095b46b.png" alt="p.25 과학자 연쇄 사망 뉴스" loading="lazy">
+  <div class="panel-caption">p.25 — 3개월 사이 3명의 과학자 사망</div>
+
+  <!-- Scene 6: 경찰서 -->
+  <img src="panels/ep001-p30-shiqiang-v3---f81f46c8-c963-4d27-9478-2d11c8853e5d.png" alt="p.30 스치친 첫 등장" loading="lazy">
+  <div class="panel-caption">p.30 — 스치친, TV 앞에서 "또 뭐야..."</div>
+
+  <img src="panels/ep001-p37-why.png" alt="p.37 스치친이 백판에 왜? 라고 적는다" loading="lazy">
+  <div class="panel-caption">p.37 — "왜?" — 스치친의 직관</div>
+
+  <!-- Scene 7: 밤의 방문자 -->
+  <img src="panels/ep001-p39-chengxin-memory---2f404f9c-e548-4010-a903-83f92021ff4e.png" alt="p.39 노년 청신이 혼자 앉아 있다" loading="lazy">
+  <div class="panel-caption">p.39 — 청신, 40년의 기다림</div>
+</main>
+
+<!-- ACT 3: 심판의 시작 -->
+<div class="scene-divider">
+  <div class="line"></div>
+  <div class="label">ACT 3 — 심판의 시작</div>
+  <div class="line"></div>
+</div>
+
+<main class="reader">
+  <!-- Scene 8: 전화 -->
+  <img src="panels/ep001-p50-phone---39f44a6c-85ff-4187-9c7d-e5ad175ce6ad.png" alt="p.50 전화 너머의 목소리" loading="lazy">
+  <div class="panel-caption">p.50 — "물리학을 믿습니까?"</div>
+
+  <!-- Scene 9: 당신은 물리학을 믿습니까 -->
+  <img src="panels/ep001-p62-judgment.png" alt="p.62 청신 실루엣 앞 거대한 도시" loading="lazy">
+  <div class="panel-caption">p.62 — "우리는 심판을 불렀다."</div>
+
+  <!-- Scene 10: 열린 문 -->
+  <img src="panels/ep001-p65-open-door.png" alt="p.65 열린 문 사이로 왕먀오의 연구실" loading="lazy">
+  <div class="panel-caption">p.65 — 열린 문, 과거가 현재를 만나다</div>
+
+  <img src="panels/ep001-p67-cliffhanger---b86f8189-5d1b-4c3a-8f57-b21320a68e30.png" alt="p.67 클리프행거 — 당신은 물리학을 믿습니까" loading="lazy">
+  <div class="panel-caption">p.67 — "당신은 물리학을 믿습니까?" — To be continued</div>
+</main>
+
+<div class="bottom-nav">
+  <a class="nav-btn disabled" href="#">← 이전화</a>
+  <a class="nav-btn home-btn" href="../../index.html">🏠 목록</a>
+  <a class="nav-btn" href="../EP002/">다음화 →</a>
+</div>
+
+<div class="feedback">
+  <p style="margin-bottom:1rem; color:var(--text-secondary);">이 에피소드에 대한 의견을 남겨주세요!</p>
+  <a href="GOOGLE_FORMS_URL_PLACEHOLDER">📝 독자 반응 남기기</a>
+</div>
+
+</body>
+</html>
