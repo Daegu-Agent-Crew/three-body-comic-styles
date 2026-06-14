@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EP001 대본 — 태초의 밤 | 삼체 만화 연재</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1G8KRMVXTJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1G8KRMVXTJ')</script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Orbitron:wght@400;700;900&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg-deep:#0a0612;--bg-card:rgba(20,10,40,.8);--bg-panel:rgba(30,20,50,.6);--purple:#8b5cf6;--blue:#3b82f6;--pink:#ec4899;--amber:#f59e0b;--p:#f1f0f5;--s:#a0a0b8;--d:#6b6b80}
+    body{font-family:'Noto Sans KR',sans-serif;background:var(--bg-deep);color:var(--p);line-height:1.8}
+    .nav{position:sticky;top:0;z-index:10;background:rgba(10,6,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(139,92,246,.2);padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;font-size:.9rem}
+    .nav a{color:var(--purple);text-decoration:none;font-weight:700}
+    .el{font-family:'Orbitron',sans-serif;font-size:.85rem;color:var(--blue)}
+    .wrap{max-width:760px;margin:0 auto;padding:0 1rem}
+    .hd{text-align:center;padding:2.5rem 0 1rem}
+    .hd h1{font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+    .hd .sub{font-size:.95rem;color:var(--s);line-height:1.6}
+    .hd .meta{font-family:'Orbitron',sans-serif;font-size:.75rem;color:var(--blue);margin-top:.5rem;letter-spacing:2px}
+    .tabs{display:flex;gap:.8rem;justify-content:center;margin:1.5rem 0;flex-wrap:wrap}
+    .tabs a{padding:.6rem 1.5rem;border-radius:.6rem;background:var(--bg-card);border:1px solid rgba(139,92,246,.3);color:var(--p);text-decoration:none;font-weight:700;font-size:.85rem}
+    .tabs a.act{background:linear-gradient(135deg,var(--purple),var(--blue));border-color:transparent}
+    .log{padding:1.2rem 1.5rem;margin:1rem 0 2rem;background:var(--bg-panel);border-left:3px solid var(--pink);border-radius:0 .5rem .5rem 0;font-size:1.05rem;font-weight:700;font-style:italic}
+    .mg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:1rem 0 2rem}
+    .mg div{background:var(--bg-panel);padding:.7rem 1rem;border-radius:.4rem;font-size:.85rem}
+    .mg .k{color:var(--purple);font-weight:700;display:block;margin-bottom:.2rem;font-size:.75rem}
+    .act{font-size:1.3rem;font-weight:900;margin:3rem 0 .5rem;padding-bottom:.5rem;border-bottom:2px solid var(--purple);display:flex;align-items:center;gap:.5rem}
+    .act .b{font-family:'Orbitron',sans-serif;font-size:.7rem;background:var(--purple);color:#fff;padding:.15rem .5rem;border-radius:.3rem;letter-spacing:1px}
+    .sc{margin:1.5rem 0;padding:1.5rem;background:var(--bg-panel);border-radius:.75rem;border:1px solid rgba(139,92,246,.1)}
+    .sc h3{font-size:1.1rem;font-weight:700;color:var(--blue);margin-bottom:.3rem}
+    .si{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.8rem;color:var(--s);margin-bottom:.5rem}
+    .si span{background:rgba(59,130,246,.1);padding:.2rem .6rem;border-radius:.3rem}
+    .si span.st{background:rgba(139,92,246,.15);color:var(--purple)}
+    .pn{overflow-x:auto}
+    .pn table{width:100%;border-collapse:collapse;font-size:.85rem}
+    .pn th{text-align:left;padding:.6rem .7rem;font-size:.75rem;color:var(--purple);border-bottom:1px solid rgba(139,92,246,.2);white-space:nowrap}
+    .pn td{padding:.7rem;border-bottom:1px solid rgba(139,92,246,.08);vertical-align:top;line-height:1.7}
+    .pn tr:hover td{background:rgba(139,92,246,.05)}
+    .num{font-family:'Orbitron',sans-serif;font-weight:700;color:var(--amber);min-width:2.5rem;text-align:center}
+    .emo{color:var(--s);font-size:.8rem;min-width:180px}
+    .dlg{color:var(--pink);font-weight:700}
+    .nar{color:var(--d);font-style:italic}
+    .kw{background:rgba(245,158,11,.15);padding:.1em .3em;border-radius:.2em;color:var(--amber)}
+    .fp{color:var(--amber);font-weight:700;font-size:.75rem}
+    hr{border:none;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.3),transparent);margin:2.5rem 0}
+    .nb{padding:1rem 1.5rem;margin:1rem 0;background:rgba(59,130,246,.08);border-radius:.5rem;border-left:3px solid var(--blue);font-size:.85rem}
+    .nb .t{font-weight:700;color:var(--blue);margin-bottom:.3rem}
+    .cb{padding:1.5rem;margin:2rem 0;background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(236,72,153,.1));border-radius:.75rem;border:1px solid rgba(139,92,246,.3)}
+    .cb h3{color:var(--pink);margin-bottom:.8rem}
+    .ft{text-align:center;padding:3rem 0 2rem;color:var(--d);font-size:.8rem}
+    .ft a{color:var(--purple);text-decoration:none}
+    @media(max-width:600px){.mg{grid-template-columns:1fr}.pn{font-size:.8rem}}
+  </style>
+</head>
+<body>
+<nav class="nav"><a href="../../index.html">THREE BODY COMIC</a><span class="el">EP001 — 대본</span></nav>
+<div class="wrap">
+  <div class="hd"><h1>📝 EP001 대본 — 태초의 밤</h1><p class="sub">문화대혁명 속에서 모든 것을 잃은 한 여성이 우주로 신호를 보내고,<br>40년 뒤 과학자들이 연쇄로 죽기 시작한다.</p><div class="meta">DRAFT v0.2 · 2026.06.12 · 28p · 10 SCENES · 69 PANELS</div></div>
+  <div class="tabs"><a href="index.html">🖼️ 만화 보기</a><a href="script.html" class="act">📝 대본</a></div>
+  <div class="mg">
+    <div><span class="k">원작 대응</span>삼체 1부 초반 — 청신의 과거(문화대혁명) + 과학자 연쇄 사망</div>
+    <div><span class="k">주요 등장인물</span>예원제(젊은 시절), 청신(노년), 예페이촨, 과학자 3인, 스치친</div>
+    <div><span class="k">시간대</span>1967년 (문화대혁명) + 2007년 (현대)</div>
+    <div><span class="k">장소</span>청쑤 대학, 비판 대회 현장, 경찰서, 청신의 집</div>
+  </div>
+  <div class="log">"문화대혁명 속에서 모든 것을 잃은 한 여성이 우주로 신호를 보내고, 40년 뒤 과학자들이 연쇄로 죽기 시작한다."</div>
+  <div class="nb"><div class="t">🔬 실험 가설</div><strong>H6</strong> — 미스터리 강도와 독자 복귀율의 상관관계<br>ACT 1(과거: 약) → ACT 2(현대 사망: 중) → ACT 3(초월적: 강)<br><strong>H2</strong> — 캐릭터 감정선 vs 과학적 아이디어, 어느 쪽이 기억에 남는가</div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr></table></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr></table></div>
+<div class="act"><span class="b">ACT 1</span> 청신의 기억 <span style="color:var(--s);font-size:.85rem">(p.1~10)</span></div>
+<div class="sc"><h3>🎬 Scene 1: 밤하늘 (p.p.1~2)</h3>
+<div class="si"><span>🎨 장소: 1967년, 청쑤 대학 기숙사 옥상</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 깊은 밤</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 예원제(22세), 라오충(지도교수)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 고요한 밤, 별이 쏟아지는 하늘, 따뜻하고 경건함</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 2 (수채화풍) — 몽환적, 부드러운 빛</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">1</td><td><strong>풀 페이지 스프레드<strong>: 밤하늘 위로 수천 개의 별이 쏟아진다. 기숙사 옥상 난간에 한 젊은 여자(예원제)가 서 있다. 머리카락이 바람에 흩날린다.</td><td class="emo">수채화풍, 빛과 어둠의 경계가 부드럽게 번짐. 독자의 첫 인상: 아름답고 고요하다.</td></tr><tr><td class="num">2</td><td>예원제가 망원경을 조정하고 있다. 눈을 가늘게 뜨고 집중. 옆에 라오충 교수가 담배를 피우며 웃고 있다.</td><td class="emo">따뜻한 조명, 교수의 담배 연기가 별빛 사이로 올라감.</td></tr><tr><td class="num">3</td><td><strong>예원제<strong>: "교수님, 이번 관측 데이터 이상하다. 이 각도에서 스펙트럼이..."</td><td class="emo">예원제의 눈이 반짝임 — 과학에 대한 순수한 열정</td></tr><tr><td class="num">4</td><td><strong>라오충<strong>: "뭔가 큰 걸 발견한 거냐?"</td><td class="emo">느긋한 미소, 담배 연기 위로 라오충의 얼굴</td></tr><tr><td class="num">5</td><td><strong>예원제<strong>: "아직 모르겠어요. 하지만... 하늘이 말을 하고 있는 것 같아요."</td><td class="emo">경건한 표정, 별을 올려다보는 예원제의 얼굴 클로즈업</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 2: 붉은 날 (p.p.3~5)</h3>
+<div class="si"><span>🎨 장소: 1967년, 청쑤 대학 강당</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 낮</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 홍위병 무리, 예원제, 예원제의 아버지(예페이촨, 물리학자)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 압도적 위협, 붉은 색 지배, 공기가 무거움</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 1 (일본만화풍) — 강렬한 선, 대비, 셀 shading</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">6</td><td><strong>풀 페이지<strong>: 강당을 가득 채운 홍위병들. 모두 붉은 완장. 배경에는 마오쩌둥 초상화가 거대하게 걸려 있다.</td><td class="emo">붉은 색 폭발, 인물들은 작게 보임. 압도적인 권력의 시각화.</td></tr><tr><td class="num">7</td><td>무대 위에 한 노인(예페이촨)이 무릎을 꿇고 있다. 머리카락이 빠진 정수리, 얼굴에 타박.</td><td class="emo">노인의 팔에는 "반동 학술 권위"라는 팻말이 매달려 있음</td></tr><tr><td class="num">8</td><td>예원제가 강당 뒤편 구석에 서 있다. 얼굴이 창백. 두 손을 꽉 쥐고 떨고 있다.</td><td class="emo">배경은 붉은데 예원제만 흑백톤으로 — 그녀의 고립을 시각화</td></tr><tr><td class="num">9</td><td><strong>홍위병 대표<strong>: "예페이촨! 네 반동적 우주론을 인정하겠는가!"</td><td class="emo">확성기를 들고 있는 홍위병, 입이 크게 벌어짐</td></tr><tr><td class="num">10</td><td><strong>예페이촨<strong>: "...물리학은 당신들의 정치로 바뀌지 않습니다."</td><td class="emo">조용하지만 단호한 목소리. 피투성이 얼굴에도 눈빛만은 꺾이지 않음.</td></tr><tr><td class="num">11</td><td>홍위병이 예페이촨을 발로 찬다. 강장 내외에 비명과 박수가 섞인다.</td><td class="emo">격렬한 음영, 잉크가 튀는 듯한 선 효과. 패널 각이 비틀어짐.</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 3: 선택 (p.p.6~8)</h3>
+<div class="si"><span>🎨 장소: 강장 외부 복도</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 낮 (비 내림)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 예원제, 홍위병 2명</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 절망, 비극, 차가운 비</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 1 → Style 2 전환 (강렬함 → 무너짐)</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">12</td><td><strong>풀 페이지<strong>: 비 내리는 복도. 예원제가 벽에 기대어 쪼그리고 앉아 있다.</td><td class="emo">수채화풍으로 전환. 빗물이 바닥에 고여 웅덩이, 그 속에 예원제의 얼굴이 반사됨.</td></tr><tr><td class="num">13</td><td>홍위병이 예원제에게 종이를 내민다.</td><td class="emo">종이에는 "父を告発せよ(아버지를 고발하라)"라고 적혀 있음</td></tr><tr><td class="num">14</td><td><strong>홍위병<strong>: "다음 순서는 너다. 예원제, 네 아버지를 반동으로 규정하라. 그래야 너도 살 수 있다."</td><td class="emo">무표정하게 말하지만, 그 말의 무게가 패널을 짓누름</td></tr><tr><td class="num">15</td><td>예원제의 시점: 손이 떨리고 있다. 종이 위의 글자가 번져 보인다.</td><td class="emo">초점이 흐려짐. 예원제의 눈에 눈물이 고여 있지만 떨어지지 않음</td></tr><tr><td class="num">16</td><td><strong>2패널 스플릿<strong>: 위 — 예원제가 붓을 든다. 아래 — 아버지가 무대 위에서 피투성이인 채 올려다보고 있다.</td><td class="emo">위는 수채화풍, 아래는 일본만화풍. 두 세계가 충돌하는 시각적 대비.</td></tr><tr><td class="num">17</td><td>예원제의 손이 멈춰 있다. 붓 끝에 잉크가 뚝뚝 떨어진다.</td><td class="emo">시간이 멈춘 듯한 연출. 주변은 모두 흐릿해짐 — 오직 붓 끝의 잉크만 선명함</td></tr><tr><td class="num">18</td><td><strong>패널 없는 침묵<strong>: 1페이지 풀 스프레드, 흰 바탕에 비 내리는 창문만 보인다. 대사 없음.</td><td class="emo">독자에게 3초의 침묵 강제. 웹툰 문법 — 여백의 무게.</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 4: 밤의 끝 (p.p.9~10)</h3>
+<div class="si"><span>🎨 장소: 청쑤 대학 라디오 망대</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 밤</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 예원제(혼자)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 차가운 결의, 고독, 우주의 무한</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 3 (사실적 SF풍) — 차가운 톤, 기계적 디테일</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">19</td><td>라디오 망대가 밤하늘을 향해 솟아 있다. 망대 밑에 예원제가 홀로 서 있다.</td><td class="emo">사실적 SF풍. 망대의 금속 질감, 하늘의 차가운 파란색.</td></tr><tr><td class="num">20</td><td>예원제의 클로즈업. 눈은 더 이상 울지 않는다. 차가운 결의.</td><td class="emo">이전 Scene과 대비 — 무너진 인간에서 결의한 존재로 변화.</td></tr><tr><td class="num">22</td><td>예원제가 송신기 스위치를 올린다.</td><td class="emo">손이 미세하게 떨림 — 결의가 있다 해도 두려움은 있는 것</td></tr><tr><td class="num">23</td><td>망대에서 전파가 우주로 방출된다. 시각화: 빛의 파동이 점점 넓어지며 어둠 속으로 사라진다.</td><td class="emo">풀 페이지. 우주의 광활함과 전파의 작은 크기 대비.</td></tr><tr><td class="num">24</td><td>나레이션: "4.2 광년 뒤, 그 신호를 받은 이들이 있었다."</td><td class="emo">작은 글씨, 패널 하단. 독자가 알아채면 소름.</td></tr></table></div>
+<div class="act"><span class="b">ACT 2</span> 연쇄 사망 <span style="color:var(--s);font-size:.85rem">(p.11~20)</span></div>
+<div class="sc"><h3>🎬 Scene 5: 뉴스 브리핑 (p.p.11~13)</h3>
+<div class="si"><span>🎨 장소: 2007년, TV 스튜디오 / 각 과학자의 일상</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 오전</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 앵커, 양동 교수, 리밍 교수, 첸쑹 교수</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 일상의 평화 → 갑작스러운 비극</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 4 (웹툰풍) — 따뜻한 색감</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">25</td><td>TV 화면: "과학계 쇼크 — 3개월 사이 3명의 최고 과학자 사망" 앵커가 진지하게 보도</td><td class="emo">뉴스 그래픽, 차갑고 공적인 톤</td></tr><tr><td class="num">26</td><td><strong>플래시백 패널 (작은)<strong>: 양동 교수의 책상. 아이가 그린 그림(태양 세 개)이 부착되어 있다. 양동이 그림을 보며 미소 짓는다.</td><td class="emo">따뜻한 조명. 그림의 "태양 세 개" — EP001 패널 5와 복선 연결</td></tr><tr><td class="num">27</td><td><strong>플래시백 패널 (작은)<strong>: 리밍 교수, 마지막 실험실. 컴퓨터 화면에 의미 없는 데이터. "어? 이게..."</td><td class="emo">혼란스러운 표정. 실험 데이터가 이상하게 뒤집힘.</td></tr><tr><td class="num">28</td><td><strong>플래시백 패널 (작은)<strong>: 첸쑹 교수, 창밖 하늘을 마지막으로 올려다본다. 눈에 눈물이 고여 있지만 미소.</td><td class="emo">"미안하다"라는 입모양만 보임 — 대사 없음</td></tr><tr><td class="num">29</td><td>다시 뉴스: "사인은 각각 다르나, 모두 심리적 요인으로 추정"</td><td class="emo">앵커의 목소리가 패널 밖에서 들려오는 느낌</td></tr><tr><td class="num">30</td><td><strong>스치친<strong>이 TV 앞에 서 있다. 담배를 입에 문 채 화면을 응시.</td><td class="emo">스치친 첫 등장. 구겨진 셔츠, 뭉친 눈. "또 뭐야..."</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 6: 경찰서 (p.p.14~17)</h3>
+<div class="si"><span>🎨 장소: 베이징 공안국, 회의실</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 오후</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 스치친, 동료 형사 2명</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 답답한 수사, 실마리 없음</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 4 (웹툰풍)</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">31</td><td>경찰서 회의실. 백판에 세 과학자의 사진이 나란히 붙어 있다. 사진 사이에 빨간 실선(관계?).</td><td class="emo">낡은 플러스 테이블, 커피 잔 자국. 수사의 지루한 현실</td></tr><tr><td class="num">32</td><td><strong>스치친<strong>: "셋 다 다른 분야야. 나노물리, 천체물리, 입자물리. 근데 죽기 전에 모두 비슷한 행동을 했다."</td><td class="emo">백판을 가리키며, 담배 연기가 백판 앞에서 흩어짐</td></tr><tr><td class="num">33</td><td><strong>동료<strong>: "비슷한 행동? 뭔데?"</td><td class="emo">피곤한 얼굴, 손에 커피</td></tr><tr><td class="num">34</td><td><strong>스치친<strong>: "전원이 마지막 2주간 자기 연구를 포기하고, 계속 밤하늘만 봤어. 마지막 날엔 전부 창문을 열어놓고 있었지."</td><td class="emo">스치친의 눈이 좁아짐 — 이건 경찰의 직관</td></tr><tr><td class="num">35</td><td><strong>동료<strong>: "자살이잖아. 스트레스. 그냥 자살인데 뭔 복잡하게."</td><td class="emo">무심하게 말함</td></tr><tr><td class="num">36</td><td><strong>스치친<strong>: "씨발, 그러니까 이상한 거지. 연구를 포기하는 게? 과학자가? 그것도 셋이나?"</td><td class="emo">백판에 동그라미를 그리며 소리침. 패널에 잉크 튀김 효과</td></tr><tr><td class="num">37</td><td>백판에 빨간 동그라미. 그 옆에 스치친이 "왜?"라고 크게 적는다.</td><td class="emo">한 글자만 선명함. 나머지는 흐릿함 — 스치친의 의문을 시각화</td></tr><tr><td class="num">38</td><td>회의실 벽에 걸린 사진들 중 하나 — 해군 제복을 입은 젊은 남자(장베이하이). 사진 아래에 "우주함대 지원 사령부"라는 캡션.</td><td class="emo">**장베이하이 떡밥**: 작고 눈에 잘 띄지 않는 위치. 독자가 나중에 "아!" 하게 됨.</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 7: 밤의 방문자 (p.p.18~20)</h3>
+<div class="si"><span>🎨 장소: 청신의 집</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 밤</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 청신(노년, 70세)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 고독, 추억, 무거운 침묵</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 2 (수채화풍) — 몽환적 회상</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">39</td><td>작은 아파트. 청신이 혼자 의자에 앉아 창밖을 보고 있다. 테이블 위에 낡은 사진 — 젊은 시절의 예원제와 라오충 교수.</td><td class="emo">노인의 실루엣, 어둠 속에 잠긴 방</td></tr><tr><td class="num">40</td><td><strong>청신<strong>(독백): "40년."</td><td class="emo">아주 작은 글씨. 나머지 패널은 침묵.</td></tr><tr><td class="num">41</td><td>청신의 손이 사진 위를 쓰다듬는다.</td><td class="emo">주름진 손, 사진의 젊은 얼굴과 대비</td></tr><tr><td class="num">43</td><td>창밖 밤하늘. 별이 하나둘씩 보인다.</td><td class="emo">Scene 1(별이 쏟아지던 하늘)과 대비 — 지금은 별이 거의 없다. 대기 오염.</td></tr><tr><td class="num">44</td><td>청신의 눈에 무언가가 비친다. — 기대, 공포, 후회, 모든 것이 섞인 표정.</td><td class="emo">클로즈업. 눈만 보이는 패널.</td></tr><tr><td class="num">45</td><td>테이블 위 핸드폰이 울린다. 화면: "알 수 없는 번호"</td><td class="emo">현실로의 갑작스러운 전환.</td></tr></table></div>
+<div class="act"><span class="b">ACT 3</span> 심판의 시작 <span style="color:var(--s);font-size:.85rem">(p.21~28)</span></div>
+<div class="sc"><h3>🎬 Scene 8: 전화 (p.p.21~22)</h3>
+<div class="si"><span>🎨 장소: 청신의 집 (계속)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 청신, 정체불명 발신자</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 오싹한 고요, 정보의 폭발</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 2 → Style 1 전환</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">47</td><td><strong>전화 너머 목소리<strong>: "...당신은, 그 신호가 닿았다는 것을 알고 있습니까?"</td><td class="emo">기계적인 목소리, 남녀 구분 불가. 말풍선이 찢어진 듯한 형태</td></tr><tr><td class="num">48</td><td>청신의 얼굴. 핸드폰을 쥔 손이 더 심하게 떨린다.</td><td class="emo">수채화풍에서 일본만화풍으로 전환. 긴장감 상승 시각화</td></tr><tr><td class="num">49</td><td><strong>청신<strong>: "누... 누구세요?"</td><td class="emo">목소리가 갈라짐</td></tr><tr><td class="num">50</td><td><strong>전화 너머 목소리<strong>: "물리학을 믿습니까?"</td><td class="emo">짧고, 차갑고, 절대적인 질문.</td></tr><tr><td class="num">51</td><td>청신의 눈이 커진다. 패널이 청신의 동공 클로즈업으로만 채워짐.</td><td class="emo">동공 속에 무언가가 비친다 — 3개의 작은 빛점.</td></tr><tr><td class="num">52</td><td><strong>전화 너머 목소리<strong>: "물리학 법칙이... 어디서나 같다고 생각하십니까?"</td><td class="emo">말풍선이 점점 커지며 패널을 침범함. 압박감</td></tr><tr><td class="num">53</td><td>통화가 끊긴다. "뚜—뚜—" 화면에 표시.</td><td class="emo">**침묵의 1페이지**: 52와 53 사이, 반 페이지의 여백. 독자에게 질문이 남김.</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 9: 당신은 물리학을 믿습니까 (p.p.23~26)</h3>
+<div class="si"><span>🎨 장소: 청신의 집 → 베이징 여러 곳 (몽타주)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 밤 → 다음 날</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 청신, 뉴스 앵커, 시민들</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 불안이 퍼지는 도시, 알 수 없는 공포</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 1 (일본만화풍)</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">55</td><td>청신이 베이징 거리를 걷는다. 주변 사람들은 모두 정상. 하지만 청신만 다른 세계에 있는 듯.</td><td class="emo">수채화풍 배경(정상) + 일본만화풍 청신(격리). 시각적 이중 구조</td></tr><tr><td class="num">56</td><td>거리의 전자광고판. 평소엔 광고가 나오는데 — 갑자기 화면이 깜빡이며 "COUNTDOWN 1199:59:59"이 뜬다.</td><td class="emo">1초만 보였다가 사라짐. 다른 행인들은 눈치채지 못함.</td></tr><tr><td class="num">57</td><td>청신만 그것을 봤다. 멈춰 선다.</td><td class="emo">클로즈업. 발밑 그림자가 비정상적으로 길게 늘어짐</td></tr><tr><td class="num">58</td><td>몽타주: 청신이 도서관에서 책을 찾는다. "삼체문제" — 세 개의 천체가 서로의 중력으로 움직이는, 궤도 예측이 불가능한 문제.</td><td class="emo">인포그래픽 삽입. 독자에게 자연스럽게 삼체문제 설명</td></tr><tr><td class="num">60</td><td>몽타주: 경찰서에서 스치친이 전화를 받는다. "또 한 명?"</td><td class="emo">스치친의 얼굴이 굳어짐</td></tr><tr><td class="num">61</td><td>몽타주: 도시 곳곳에서 사람들이 같은 현상을 목격. 컴퓨터, TV, 핸드폰 화면에 1초씩 카운트다운이 뜬다.</td><td class="emo">혼돈이 시작됨. 패널을 6개로 나누어 각각 다른 장소를 보여줌</td></tr><tr><td class="num">62</td><td><strong>청신<strong>(독백): "우리는 심판을 불렀다."</td><td class="emo">풀 페이지. 청신의 실루엣이 거대한 도시 앞에 서 있다.</td></tr></table></div>
+<div class="sc"><h3>🎬 Scene 10: 열린 문 (p.p.27~28)</h3>
+<div class="si"><span>🎨 장소: 베이징, 왕먀오의 연구실 밖 (청신이 도착)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 시간: 밤</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 등장인물: 청신, (왕먀오의 실루엣)</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span>🎨 분위기: 최종 훅, 타임라인 교차</span></div>
+<div style="height:.5rem"></div>
+<div class="si"><span class="st">🎨 화풍: Style 3 (사실적 SF풍) — 차가운 청색톤</span></div>
+<div style="height:.5rem"></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">63</td><td>연구실 건물 외관. 한 노인(청신)이 문 앞에 서 있다.</td><td class="emo">사실적 SF풍. 건물은 현대적이나, 청신은 과거에서 온 듯한 이질감</td></tr><tr><td class="num">64</td><td>청신이 문을 열려 한다. 손이 문고리에 닿는 순간.</td><td class="emo">클로즈업. 문고리의 금속 반사광</td></tr><tr><td class="num">65</td><td>문이 열린다. 안쪽이 보인다 — 수많은 모니터, 복잡한 장비, 그리고 한 남자(왕먀오)의 등.</td><td class="emo">왕먀오의 등만 보임. 다음 화를 기대하게 함</td></tr><tr><td class="num">66</td><td>왕먀오의 모니터 화면. 깜깜한 화면에 하나의 메시지가 떠 있다.</td><td class="emo">화면 속 글자에 초점 맞춤</td></tr><tr><td class="num">69</td><td>— EP001 END —</td><td class="emo">패널 없음. 검은 배경에 "To be continued..."</td></tr></table></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr></table></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">장면</td><td>가설 요소</td><td class="emo">기대 효과</td></tr><tr><td class="num">Scene 1~2 (ACT 1)</td><td>과거 미스터리: 문화대혁명의 비극</td><td class="emo">감정 이입 + "이게 무슨 이야기지?"</td></tr><tr><td class="num">Scene 5~6 (ACT 2)</td><td>현대 미스터리: 과학자 연쇄 사망</td><td class="emo">"왜 죽는 거지?" 이유 호기심</td></tr><tr><td class="num">Scene 8~10 (ACT 3)</td><td>초월적 미스터리: 물리학을 믿습니까?</td><td class="emo">소름 + 2화 복귀</td></tr><tr><td class="num">전체</td><td>H2 테스트: 감정선(ACT 1) vs 과학(ACT 3)</td><td class="emo">어느 쪽이 기억에 남는가?</td></tr></table></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">장면</td><td>추천 화풍</td><td class="emo">이유</td></tr><tr><td class="num">Scene 1 (밤하늘)</td><td>Style 2 수채화풍</td><td class="emo">몽환적, 순수함, 경건함</td></tr><tr><td class="num">Scene 2~3 (문화대혁명)</td><td>Style 1 일본만화풍</td><td class="emo">역사적 무게감, 폭력, 대비</td></tr><tr><td class="num">Scene 3 패널 18 (침묵)</td><td>Style 2 수채화풍</td><td class="emo">여백과 침묵의 무게</td></tr><tr><td class="num">Scene 4 (라디오 망대)</td><td>Style 3 사실적 SF풍</td><td class="emo">우주의 차가움, 기계적 결의</td></tr><tr><td class="num">Scene 5~6 (현대)</td><td>Style 4 웹툰풍</td><td class="emo">일상의 따뜻함 → 사건의 차가움</td></tr><tr><td class="num">Scene 7 (청신 회상)</td><td>Style 2 수채화풍</td><td class="emo">추억의 몽환적 분위기</td></tr><tr><td class="num">Scene 8~10 (클라이맥스)</td><td>Style 1→3 전환</td><td class="emo">긴장→SF 초월</td></tr></table></div>
+<div class="pn"><table><tr><th>P</th><th>내용</th><th>감정/연출</th></tr><tr><td class="num">날짜</td><td>버전</td><td class="emo">변경 내용</td></tr><tr><td class="num">2026-06-12</td><td>v0.1</td><td class="emo">초안 (카운트다운 — EP003 영역, PRD 충돌)</td></tr><tr><td class="num">2026-06-12</td><td>v0.2</td><td class="emo">완전 재작성 — 태초의 밤 (EP001 매핑, 리뷰 B반영)</td></tr></table></div>
+</div>
+
+<div class="cb">
+  <h3>🔚 클리프행어 → EP002</h3>
+  <p><strong>이 화 후킹:</strong> "당신은 물리학을 믿습니까?" + "Three Body 게임 초대" — 두 가지 질문으로 2화 복귀 유도</p>
+  <p style="margin-top:.5rem"><strong>다음 화 예고:</strong> EP002 — 왕먀오가 카운트다운에 직면하고, 스치친이 보호자로 등장, 삼체 게임 초대장</p>
+  <p style="margin-top:.5rem"><strong>남기는 질문:</strong> 청신은 왜 40년 만에 이제야 움직였는가? "그들"은 누구인가?</p>
+</div>
+
+<hr>
+
+<div class="nb">
+  <div class="t">🎨 화풍 가이드</div>
+  <strong>Scene 1</strong> 수채화풍 — 몽환, 순수 · <strong>Scene 2~3</strong> 일본만화풍 — 역사적 무게 · <strong>Scene 4</strong> 사실적 SF풍 — 차가운 결의<br>
+  <strong>Scene 5~6</strong> 웹툰풍 — 일상 → 사건 · <strong>Scene 7</strong> 수채화풍 — 추억 · <strong>Scene 8~10</strong> 만화풍→SF풍 — 긴장→초월
+</div>
+
+<div class="ft">
+  <p>삼체 만화 × 재미 실험 프로젝트 | <a href="index.html">🖼️ 만화 보기</a> · <a href="../../index.html">🏠 목록</a></p>
+  <p style="margin-top:.5rem">DRAFT v0.2 — PRD v2.0 기반 · 가설 할당: H6(주), H2(부)</p>
+</div>
+
+</div>
+</body>
+</html>
